@@ -86,7 +86,7 @@ class DCN(DCNv2):
         mask = torch.sigmoid(mask)
         output = torch.ops.my_ops.dcn_v2_cuda_forward_v2(input, self.weight, self.bias,
                                     offset, mask,
-                                    self.weight.shape[2], self.weight.shape[3],
+                                    self.kernel_size[0], self.kernel_size[1],
                                     self.stride[0], self.stride[1],
                                     self.padding[0], self.padding[1],
                                     self.dilation[0], self.dilation[1],
